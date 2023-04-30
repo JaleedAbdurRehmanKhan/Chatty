@@ -8,11 +8,13 @@ const chatRoutes=require('./routes/chatRoutes')
 const messageRoutes=require('./routes/messageRoutes')
 const {notFound,errorHandler}= require ('./middleware/errorMiddleware')
 const path = require("path");
+const cors = require('cors');
 
 
 dotenv.config();
 connectDB();
 const app = express();
+app.use(cors());
 
 
 app.use(express.json());///to accept json data
@@ -50,7 +52,7 @@ const server=app.listen(PORT,console.log(`server Started on PORT 5000 ${PORT}`))
 const io = require("socket.io")(server, {
   pingTimeout: 60000,//after this time it will be inactice
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://unrivaled-praline-4f2703.netlify.app",//http://localhost:3000",
   },
 });
 

@@ -12,7 +12,7 @@ import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-const ENDPOINT = "https://chattybackend-sm0m.onrender.com"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "https://chattybackend-sm0m.onrender.com"; // before deployment "https://localhost:5000"; 
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -40,7 +40,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        `https://chattybackend-sm0m.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -71,7 +71,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");//could have added it later on, but adding it here wiuld make the message sending field instantly empty 
         const { data } = await axios.post(//while the post request is async so it would be not be affectd by this
-          "/api/message",
+          "https://chattybackend-sm0m.onrender.com/api/message",
           {
             content: newMessage,
             chatId: selectedChat,

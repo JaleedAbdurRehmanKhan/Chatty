@@ -51,7 +51,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(//doing it here istead of postman
-        "/api/user",                    //response is destructured 
+        "https://chattybackend-sm0m.onrender.com/api/user",                    //response is destructured 
         {
           name,
           email,

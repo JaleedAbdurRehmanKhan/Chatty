@@ -25,7 +25,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("/api/chat", config);//for getting all the chats 
+      const { data } = await axios.get("https://chattybackend-sm0m.onrender.com/api/chat", config);//for getting all the chats 
       setChats(data);
     } catch (error) {
       toast({
