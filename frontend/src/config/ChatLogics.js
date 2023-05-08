@@ -26,7 +26,7 @@ export const isSameSender = (messages, m, i, userId) => {
   );
 };
 
-export const isLastMessage = (messages, i, userId) => {
+export const isLastMessage = (messages, i, userId) => {//checking for opposite user
   return (
     i === messages.length - 1 &&
     messages[messages.length - 1].sender._id !== userId &&

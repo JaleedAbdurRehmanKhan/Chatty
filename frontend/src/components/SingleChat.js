@@ -194,7 +194,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             w="100%"
             h="100%"
             borderRadius="lg"
-            //overflowY="hidden"
+            //overflow-Y="hidden"
           >
             {loading ? (
               <Spinner
@@ -205,7 +205,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 margin="auto"
               />
             ) : (
-              <div className="messages">
+              <div  className="messages">
                 <ScrollableChat messages={messages} />
               </div>
             )}
@@ -229,6 +229,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 placeholder="Enter a message.."
                 value={newMessage}
                 onChange={typingHandler}//when the value of input is changed, this onchange will be triggered
+                margin="0px 0px 0px 0px"
               />
             </FormControl>
           </Box>

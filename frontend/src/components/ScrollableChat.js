@@ -21,12 +21,12 @@ const ScrollableChat = ({ messages }) => {
   const { user } = ChatState();
 
   return (
-    <div ref={scrollRef} style={{ overflowY: 'auto', maxHeight: '350px' ,scrollBehavior: 'smooth'}}>
+    <div ref={scrollRef} style={{ overflowY: 'auto', maxHeight: '350px' ,minHeight:"350px",scrollBehavior: 'smooth',margin:"0px 0px 0px 0px",color:"black"}}>
       {messages &&
         messages.map((m, i) => (
           <div style={{ display: "flex" }} key={m._id}>
             {(isSameSender(messages, m, i, user._id) ||
-              isLastMessage(messages, i, user._id)) && (
+              isLastMessage(messages, i, user._id)) && (//if any is true,that means we are dealing with the opposite user
               <Tooltip label={m.sender.name} placement="bottom-start" hasArrow>
                 <Avatar
                   mt="7px"
@@ -35,6 +35,7 @@ const ScrollableChat = ({ messages }) => {
                   cursor="pointer"
                   name={m.sender.name}
                   src={m.sender.pic}
+                  
                 />
               </Tooltip>
             )}

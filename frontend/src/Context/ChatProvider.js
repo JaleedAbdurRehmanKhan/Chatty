@@ -1,16 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-
 const ChatContext = createContext();
-
 const ChatProvider = ({ children }) => {
   const [selectedChat, setSelectedChat] = useState();//available everywhere
   const [user, setUser] = useState();
   const [notification, setNotification] = useState([]);
   const [chats, setChats] = useState();
-
   const history = useHistory();
-
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     setUser(userInfo);
@@ -36,9 +32,7 @@ const ChatProvider = ({ children }) => {
     </ChatContext.Provider>
   );
 };
-
 export const ChatState = () => {//all of the state is here 
   return useContext(ChatContext);
 };
-
 export default ChatProvider;
